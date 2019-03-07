@@ -154,6 +154,11 @@ local function x2array (tab)
 end
 
 ---------------------------------------------------------------------
+local function x2nil (tab)
+	return tab.tag == "nil" and "nil"
+end
+
+---------------------------------------------------------------------
 local xmlrpc_types = {
 	int = x2number,
 	i4 = x2number,
@@ -164,6 +169,7 @@ local xmlrpc_types = {
 	base64 = x2base64,
 	struct = x2struct,
 	array = x2array,
+	["nil"] = x2nil,
 }
 
 local x2param, x2fault
